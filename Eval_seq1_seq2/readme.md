@@ -9,5 +9,5 @@ https://www.figma.com/file/aZQJkOiQsEIDlxxRaThl3U/M5BikeCompanion?type=design&no
 * Commencer à coder en suivant la grille d'évaluation et les instructions commentées *"// A Faire"*
 * Vérifier régulièrement votre travail en uploadant votre code dans le M5Stick
 * Pensez à appeler régulièrement le professeur pour valider les compétences de votre grille
-* A la fin de la séance, placez votre dossier *M5BikeCompanion_votreNom* dans le dossier *Restitutions de devoirs/Guivarch/Eval_seq1_seq2*
+* A la fin de la séance, placez votre dossier *M5BikeCompanion_votreNom* dans le dossier *Restitutions de devoirs/TP Guivarch IR/Eval_seq1_seq2*
 
