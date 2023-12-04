@@ -1,12 +1,12 @@
 #include <Arduino.h>
 #include <M5StickCPlus.h>
 #include <string.h>
-#include <ArduinoJson.h>
+
 
 #define nbPages 2
 // Prototypes des fonctions :
 void demoVariables();
-void receptionJson();
+
 void pagePrincipale();
 void pageReseau();
 
@@ -31,42 +31,8 @@ float sda = 0;
 unsigned int pageActuelle = 0;
 bool etatAlarme = false;
  String nw_cidr;
- String nw_mac;
-void receptionJson()
-{
-  // Stream& input;
-  StaticJsonDocument<384> doc;
 
-  DeserializationError error = deserializeJson(doc, Serial);
 
-  if (error)
-  {
-    Serial.print("deserializeJson() failed: ");
-    Serial.println(error.c_str());
-    Serial.flush();
-    return;
-  }
-  
-  String temp_nw_cidr= doc["nw_cidr"]; // "10.0.2.15/24"
-  nw_cidr=temp_nw_cidr;
-  JsonObject deviceStats = doc["deviceStats"];
-  tstamp = deviceStats["tstamp"]; // 1701637913664
-  uptime = deviceStats["uptime"]; // 1554.99
-
-  JsonArray deviceStats_load = deviceStats["load"];
-  cpu_load[0] = deviceStats_load[0]; // 3.27
-  cpu_load[1] = deviceStats_load[1]; // 1.79
-  cpu_load[2] = deviceStats_load[2]; // 1.79
-
-  used_memory = deviceStats["mem"]["used"]; // 3219012
-  free_memory = deviceStats["mem"]["free"]; // 3088008
-
-  nw_rx = doc["nw_rx"];     // 256.5
-  nw_tx = doc["nw_tx"];     // 523.3
-  sda = doc["sda_usage"];   // 0.78
-  
-  
-}
 /**
  * @brief Fait varier aléatoirement les valeurs des variables pour simuler l'affichage
  */
@@ -285,8 +251,8 @@ void loop()
   if (millis() - dernierMillisRecep > 3000)
   {
     dernierMillisRecep = millis(); // Mise à jour de la valeur du Dernier Millis
-    // demoVariables();
-    receptionJson();
+    demoVariables();
+  
   }
 
   if (millis() - dernierMillisRefresh > 500)
