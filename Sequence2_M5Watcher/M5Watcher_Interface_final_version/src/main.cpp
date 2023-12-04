@@ -61,7 +61,7 @@ void receptionJson()
   used_memory = deviceStats["mem"]["used"]; // 3219012
   free_memory = deviceStats["mem"]["free"]; // 3088008
 
-  nw_rx = doc["nw_rx"];     // 25e6.5
+  nw_rx = doc["nw_rx"];     // 256.5
   nw_tx = doc["nw_tx"];     // 523.3
   sda = doc["sda_usage"];   // 0.78
   
