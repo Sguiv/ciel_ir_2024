@@ -1,0 +1,376 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Large Colored Title Article
+% LaTeX Template
+% Version 1.1 (25/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[DIV=calc,paper=a4,fontsize=11pt,twocolumn,halfparskip,parindent]{scrartcl} % A4 paper and 11pt font size
+\usepackage[utf8]{inputenc}  
+\usepackage[francais]{babel} % French language/hyphenation
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage[hang,small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{fix-cm} % Custom font sizes - used for the initial letter in the document
+
+\usepackage{sectsty} % Enables custom section titles
+\allsectionsfont{\usefont{OT1}{phv}{b}{n} \color{DarkRed}} % Change the font of all section commands
+
+\usepackage{fancyhdr} % Needed to define custom headers/footers
+\pagestyle{fancy} % Enables the custom headers/footers
+\usepackage{lastpage} % Used to determine the number of pages in the document (for "Page X of Total")
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{indentfirst} % Indentation for all paragraphs (first included)
+\usepackage{bold-extra}
+\usepackage{listingsutf8}
+\lstset{language=C}          % Set your language
+\lstset{showspaces=false,showstringspaces=false,showtabs=false}
+\lstset{inputencoding=utf8/latin1}
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,arrows.meta}
+% Define block styles
+\tikzstyle{decision}=[diamond,aspect=2,draw,fill=red!15,text width=12ex,text centered,node distance=12ex,inner sep=0pt]
+%\tikzstyle{block}=[rectangle,draw,fill=blue!20,text width=5em,text centered,rounded corners,minimum height=4em]
+\tikzstyle{block}=[rectangle,draw,fill=blue!20,node distance=15ex,text centered,rounded corners,text width=15ex,minimum height=5ex]
+\tikzstyle{block2}=[rectangle,draw,fill=blue!70!red!10,node distance=15ex,text centered,rounded corners,text width=15ex,minimum height=5ex]
+\tikzstyle{line}=[draw,-latex]
+\tikzstyle{_line}=[draw,{Circle[length=5pt,fill=none]}-latex] 
+%\tikzstyle{cloud}=[draw,ellipse,fill=green!20,node distance=3cm,minimum height=2em]
+%\tikzstyle{cloud}=[draw,rectangle,fill=green!20,node distance=25ex,minimum height=5ex,rounded corners]
+%\tikzstyle{cloud}=[draw=none,fill=none]
+\tikzstyle{cloud}=[draw,circle,fill=none]
+
+% Headers - all currently empty
+\lhead{}
+\chead{}
+\rhead{}
+
+% Footers
+\lfoot{Loïc \textsc{Plassart}}
+\cfoot{}
+\rfoot{\footnotesize Page \thepage/\pageref{LastPage}} % "Page 1/2"
+
+% Superscript
+%\newcommand{\up}[1]{\textsuperscript{#1}} 
+
+% Header en footer rules
+\renewcommand{\headrulewidth}{0.0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt \color{DarkGoldenrod}} % Thin footer rule
+%\renewcommand{\footrulewidth}{0.4pt \color{DarkBlue}} % Thin footer rule
+
+%% Formatage des entêtes de noms de figures et de tableaux
+%% -------------------------------------------------------
+\addto\captionsfrench{\def\figurename{\textsc{Fig.}}}
+\addto\captionsfrench{\def\tablename{\textsc{Tab.}}}
+
+% Lettrine for first paragraph
+\usepackage{lettrine} % Package to accentuate the first letter of the text
+\newcommand{\initial}[1]{ % Defines the command and style for the first letter
+\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{DarkGoldenrod}
+%\color{DarkBlue}
+      {\textsf{#1}}}{}}
+
+% Space between paragraphs
+\setlength{\parskip}{0.3em}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\usepackage{titling} % Allows custom title configuration
+\newcommand{\HorRule}{\color{DarkGoldenrod} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
+%\newcommand{\HorRule}{\color{DarkBlue} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
+\pretitle{\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{40}{40} \usefont{OT1}{pag}{b}{n} \color{DarkRed} \selectfont} % Title font configuration
+\title{Structures conditionnelles} % Your article title
+\posttitle{\par\end{flushleft}\vskip 0.5em} % Whitespace under the title
+\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{n} \color{DarkRed}} % Author font configuration
+\author{Fondements du langage C} % Your name
+\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name University of California % Your institution
+\par\end{flushleft}\HorRule} % Horizontal rule after the title
+\date{} % Add a date here if you would like one to appear underneath the title block
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle % Print the title
+\thispagestyle{fancy} % Enabling the custom headers/footers for the first page 
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+% The first character should be within \initial{}
+%\initial{H}\textbf{ere is some sample text to show the initial in the introductory paragraph of this template article. 
+%The color and lineheight of the initial can be modified in the preamble of this document.}
+\initial{L}\textbf{es structures conditionnelles sont très utilisées en programmation pour conditionner l'exécution d'un programme. Du point de vue algorithmique,
+  il s'agit de mécanismes qui permettent d'exprimer une décision et de sélectionner des suites d'instructions à traîter en fonction d’une condition (prédicat) qui
+  peut être vraie ou fausse. Une condition est ainsi une expression dont la valeur va déterminer les actions réalisées dans la suite de l'exécution d'un programme.}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+\section*{Opérateurs relationnels et logiques}
+Dès lors que le principe d'une structure conditionnelle repose sur l'évaluation de conditions, il est nécessaire de faire appel à des opérateurs permettant d'établir
+des expressions relationnelles et logiques. Par défaut, une telle expression est associée au type \texttt{int} et prend pour valeur 0 si elle est fausse et 1 si elle
+est vraie. Par ailleurs, toute expression non nulle est logiquement évaluée comme étant vraie.
+
+Les opérateurs relationnels et logiques sont les listés dans le tableau~\ref{operateurs}:
+\begin{table}[!h]
+\centering
+\begin{tabular}{ll}
+\toprule
+Opérateur & Signification\\
+\midrule\midrule
+$>$ & Strictement supérieur\\
+$<$ & Strictement inférieur\\
+$>=$ & Supérieur ou égal\\
+$<=$ & Inférieur ou égal\\
+$==$ & \'Egal\\
+$!=$ & Non égal\\
+\&\& & ET logique\\
+\textbar\textbar & OU logique\\
+$!$ & NON logique\\
+\bottomrule
+\end{tabular}
+\caption{Liste des opérateurs relationnels et logiques}\label{operateurs}
+\end{table}
+
+Il est alors possible de combiner plusieurs expressions relationnelles au moyen d'opérateurs logiques tel que le montre l'exemple ci-dessous :
+\begin{lstlisting}[frame=single]
+(age >= 8) && (age <= 12)
+\end{lstlisting}
+
+Dans cet exemple, la condition à évaluer n'est vraie que si les deux expressions relationnelles sont vraies.
+
+L'utilisation de l'opérateur NON logique permet d'évaluer l'inverse de l'expression :
+\begin{lstlisting}[frame=single]
+!(age >= 18)
+\end{lstlisting}
+
+L'exemple ci-dessus exprime une condition qui est vraie si la valeur de la variable \texttt{age} n'est pas supérieure ou égale à 18, c'est-à-dire qu'elle est
+inférieure à 18. 
+
+%------------------------------------------------
+\section*{Structure \texttt{\textbf{if...else}}}
+La structure conditionnelle la plus courante et la plus basique est \texttt{if...else}. Son principe repose sur l’évaluation booléenne d’une condition. Sa syntaxe
+générale est la suivante :
+\begin{lstlisting}[frame=single]
+if (/* Condition à évaluer */)
+{
+  /* Suite d'intructions à       */
+  /* traiter si la condition est */
+  /* vraie.                      */
+}
+else
+{
+  /* Autre suite d'intructions à  */
+  /* traiter si la condition est  */
+  /* si la condition est fausse.  */
+}
+\end{lstlisting}
+
+La figure~\ref{ifelse} présente sous forme d'un algorigramme le déroulement d'une structure \texttt{if...else}. Elle schématise le fait que l'exécution du
+programme ne peut s'appliquer qu'à l'un des deux blocs d'instructions sélectionné en fonction du résultat de l'évaluation de la condition.
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[node distance=8ex,auto]
+  \node[cloud](start){};
+  \node[decision,below of=start](condition){Condition vraie ?};
+  \node[block2,below of=condition](execution-1){Bloc d'instruc-\\tions \texttt{if}};
+  \node[block2,right of=execution-1,node distance=20ex](execution-2){Bloc d'instructions \texttt{else}};
+  \node[cloud,below of=execution-1](stop){}; 
+  \path[line](start)--(condition);
+  \path[line](condition)--node{Oui}(execution-1);
+  \path[_line,rounded corners](condition)-|node{Non}(execution-2);
+  \path[line](execution-1)--(stop);
+  \path[line,rounded corners](execution-2)|-node{}(stop);
+\end{tikzpicture}
+\caption{Déroulement d'une structure \texttt{if...else}}\label{ifelse}
+\end{figure}
+
+Lorsqu’il est nécessaire d’exécuter plusieurs instructions selon que la condition est vérifiée ou non, il faut créer un bloc de code, c’est-à-dire un ensemble
+d’instructions borné par des accolades (\{ et \}). Cependant et même lorsqu'une seule instruction doit être traitée, il est conseillé d’utiliser systématiquement
+les accolades. Le code ci-dessous présente un exemple d’utilisation de la structure \texttt{if...else} :
+\begin{lstlisting}[frame=single]
+if (age >= 18)
+{
+  printf("Vous êtes majeur !");
+}
+else
+{
+  printf("Vous êtes mineur !");
+}
+\end{lstlisting}
+
+Le cas \texttt{else} n’est pas directement associé à condition. Il correspond en effet au traitement par défaut, c’est-à-dire qu’il est pris en compte uniquement lorsque
+la condition booléenne exprimée au niveau du \texttt{if} n’est pas vérifiée. 
+
+L'exemple ci-dessous montre l'utilisation du \texttt{if} considérant deux expressions relationnelles liées par l'opérateur ET logique :
+\begin{lstlisting}[frame=single]
+if ((speed >= 150) && (speed < 200))
+{
+  printf("Rapide !");
+}
+\end{lstlisting}
+
+Un autre exemple présenté ci-dessous permet d'exclure les cas limites :
+\begin{lstlisting}[frame=single]
+if ((speed == 0) || (speed >= 300))
+{
+  printf("Hors limites !");
+}
+\end{lstlisting}
+
+Dans cet exemple, c'est l'opérateur OU logique qui est utilisé.
+
+Il est également possible d’imbriquer les cas d’évaluation d’une condition en utilisant le test \texttt{else if}. Il s'agit alors d'une structure \texttt{if...else}
+généralisée permettant de prendre en compte un plus grand nombre de cas. Le code suivant montre un exemple d’implémentation :
+\begin{lstlisting}[frame=single]
+if (vitesse >= 200)
+{
+  printf("Très rapide !");
+}
+else if (vitesse >= 150)
+{
+  printf("Rapide !");
+}
+else if (vitesse >= 100)
+{
+  printf("Moyen !");
+}
+else
+{
+  printf("Lent !");
+}
+\end{lstlisting}
+
+L'algorigramme présenté par la figure~\ref{ifelseif} montre le déroulement d'une structure de type \texttt{if...else if...else} basée sur un ensemble de trois
+évaluations de condition. Ces différentes évaluations sont successivement considérées jusqu'à ce que l'une d'entre-elles soit vérifiée. Le cas échéant, le bloc
+d'instructions correspondant est traité. Dans le cas contraire, c'est le bloc d'instructions par défaut et associé au \texttt{else} qui est exécuté.
+\begin{figure*}[!h]
+\centering
+\begin{tikzpicture}[node distance=8ex,auto]
+  \node[cloud](start){};
+  \node[decision,below of=start](condition-1){Condition 1 vraie ?};
+  \node[decision,right of=condition-1,below of=condition-1,node distance=15ex,xshift=5ex](condition-2){Condition 2 vraie ?};
+  \node[decision,right of=condition-2,below of=condition-2,node distance=15ex,xshift=5ex](condition-3){Condition 3 vraie ?};
+  \node[block2,below of=condition-3](execution-3){Bloc d'instruc-\\tions \texttt{else if}};
+  \node[block2,left of=execution-3,xshift=-5ex](execution-2){Bloc d'instruc-\\tions \texttt{else if}};
+  \node[block2,left of=execution-2,xshift=-5ex](execution-1){Bloc d'instruc-\\tions \texttt{if}};
+  \node[block2,right of=execution-3,xshift=5ex](execution-4){Bloc d'instruc-\\tions \texttt{else}};
+  \node[cloud,below of=execution-1](stop){}; 
+  \path[line](start)--(condition-1);
+  \path[line](condition-1)--node{Oui}(execution-1);
+  \path[line](condition-2)--node{Oui}(execution-2);
+  \path[line](condition-3)--node{Oui}(execution-3);
+  \path[_line,rounded corners](condition-3)-|node{Non}(execution-4);
+  \path[_line,rounded corners](condition-2)-|node{Non}(condition-3);
+  \path[_line,rounded corners](condition-1)-|node{Non}(condition-2);
+  \path[line,rounded corners](execution-1)--node{}(stop);
+  \path[line,rounded corners](execution-2)|-node{}(stop);
+  \path[line,rounded corners](execution-3)|-node{}(stop);
+  \path[line,rounded corners](execution-4)|-node{}(stop);
+\end{tikzpicture}
+\caption{Déroulement d'une structure \texttt{if...else if...else}}\label{ifelseif}
+\end{figure*}
+
+%------------------------------------------------
+\section*{Structure \texttt\textbf{switch...case}}
+La structure \texttt{switch...case} s'applique lorsqu'un choix multiple doit être effectué. En termes d'usage et de représentation algorithmique, elle s'apparente à
+une structure \texttt{if...else} généralisée. L'instruction \texttt{switch} permet de faire plusieurs tests de valeurs sur le contenu d'une même variable. Ce branchement
+conditionnel simplifie beaucoup le test de plusieurs valeurs d'une variable en évitant l’utilisation d'une structure de type \texttt{if...else if...else}. Sa syntaxe
+générale est la suivante : 
+\begin{lstlisting}[frame=single]
+switch (/* Variable à évaluer */)
+{
+  case /* Valeur 1 */ :
+  /* Suite d'instructions */
+  /* à traiter            */
+  break;
+
+  case /* Valeur 2 */ :
+  /* Suite d'instructions */
+  /* à traiter            */
+  break;
+
+  case /* Valeur 3 */ :
+  /* Suite d'instructions */
+  /* à traiter            */
+  break;
+
+  default :
+  /* Suite d'instructions */
+  /* à traiter            */
+}	
+\end{lstlisting}
+
+Chaque cas correspond à une confrontation de la valeur de variable à évaluer avec une valeur constante. Lorsque l'égalité est vérifiée, le bloc d'instructions
+associé au cas est exécuté.
+
+L'instruction \texttt{break} provoque la sortie du bloc \texttt{switch}. Si elle n'est pas précisée, le cas suivant est également évalué. Cette situation n'a généralement
+aucun intérêt et il convient le plus souvent d'utiliser l'instruction \texttt{break} afin d'éviter d'exécuter des tests inutiles.
+
+Le cas \texttt{default} est facultatif comme peut l'être celui du \texttt{else} dans une structure \texttt{if...else}. Il est exécuté seulement si la valeur de la
+variable à évaluer ne correspond à aucun des cas précémment évalués. 
+\begin{lstlisting}[frame=single]
+switch (commande)
+{
+  case 'M' :
+  printf("Démarrage !\n");
+  break;
+
+  case 'A' :
+  printf("Arrêt !\n");
+  break;
+
+  default :
+  printf("Ordre non valide !\n");
+}	
+\end{lstlisting}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+%\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+
+%\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
+%Figueredo, A.~J. and Wolf, P. S.~A. (2009).
+%\newblock Assortative pairing and life history strategy - a cross-cultural study.
+%\newblock {\em Human Nature}, 20:317--330.
+ 
+%\end{thebibliography}
+
+%----------------------------------------------------------------------------------------
+\end{document}

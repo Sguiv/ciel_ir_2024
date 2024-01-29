@@ -1,0 +1,273 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Large Colored Title Article
+% LaTeX Template
+% Version 1.1 (25/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[DIV=calc,paper=a4,fontsize=11pt,twocolumn,halfparskip,parindent]{scrartcl} % A4 paper and 11pt font size
+\usepackage[utf8]{inputenc}  
+\usepackage[francais]{babel} % French language/hyphenation
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage[hang,small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{fix-cm} % Custom font sizes - used for the initial letter in the document
+
+\usepackage{sectsty} % Enables custom section titles
+\allsectionsfont{\usefont{OT1}{phv}{b}{n} \color{DarkRed}} % Change the font of all section commands
+
+\usepackage{fancyhdr} % Needed to define custom headers/footers
+\pagestyle{fancy} % Enables the custom headers/footers
+\usepackage{lastpage} % Used to determine the number of pages in the document (for "Page X of Total")
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{indentfirst} % Indentation for all paragraphs (first included)
+\usepackage{bold-extra}
+\usepackage{listingsutf8}
+\lstset{language=C}          % Set your language
+\lstset{showspaces=false,showstringspaces=false,showtabs=false}
+\lstset{inputencoding=utf8/latin1}
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,arrows.meta}
+% Define block styles
+\tikzstyle{decision}=[diamond,aspect=2,draw,fill=red!15,text width=12ex,text centered,node distance=12ex,inner sep=0pt]
+%\tikzstyle{block}=[rectangle,draw,fill=blue!20,text width=5em,text centered,rounded corners,minimum height=4em]
+\tikzstyle{block}=[rectangle,draw,fill=blue!20,node distance=15ex,text centered,rounded corners,text width=15ex,minimum height=5ex]
+\tikzstyle{block2}=[rectangle,draw,fill=blue!70!red!10,node distance=15ex,text centered,rounded corners,text width=15ex,minimum height=5ex]
+\tikzstyle{line}=[draw,-latex]
+\tikzstyle{_line}=[draw,{Circle[length=5pt,fill=none]}-latex] 
+%\tikzstyle{cloud}=[draw,ellipse,fill=green!20,node distance=3cm,minimum height=2em]
+%\tikzstyle{cloud}=[draw,rectangle,fill=green!20,node distance=25ex,minimum height=5ex,rounded corners]
+%\tikzstyle{cloud}=[draw=none,fill=none]
+\tikzstyle{cloud}=[draw,circle,fill=none]
+
+% Headers - all currently empty
+\lhead{}
+\chead{}
+\rhead{}
+
+% Footers
+\lfoot{Loïc \textsc{Plassart}}
+\cfoot{}
+\rfoot{\footnotesize Page \thepage/\pageref{LastPage}} % "Page 1/2"
+
+% Superscript
+%\newcommand{\up}[1]{\textsuperscript{#1}} 
+
+% Header en footer rules
+\renewcommand{\headrulewidth}{0.0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt \color{DarkGoldenrod}} % Thin footer rule
+%\renewcommand{\footrulewidth}{0.4pt \color{DarkBlue}} % Thin footer rule
+
+%% Formatage des entêtes de noms de figures et de tableaux
+%% -------------------------------------------------------
+\addto\captionsfrench{\def\figurename{\textsc{Fig.}}}
+\addto\captionsfrench{\def\tablename{\textsc{Tab.}}}
+
+% Lettrine for first paragraph
+\usepackage{lettrine} % Package to accentuate the first letter of the text
+\newcommand{\initial}[1]{ % Defines the command and style for the first letter
+\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{DarkGoldenrod}
+%\color{DarkBlue}
+      {\textsf{#1}}}{}}
+
+% Space between paragraphs
+\setlength{\parskip}{0.3em}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\usepackage{titling} % Allows custom title configuration
+\newcommand{\HorRule}{\color{DarkGoldenrod} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
+%\newcommand{\HorRule}{\color{DarkBlue} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
+\pretitle{\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{40}{40} \usefont{OT1}{pag}{b}{n} \color{DarkRed} \selectfont} % Title font configuration
+\title{Structures itératives} % Your article title
+\posttitle{\par\end{flushleft}\vskip 0.5em} % Whitespace under the title
+\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{n} \color{DarkRed}} % Author font configuration
+\author{Fondements du langage C} % Your name
+\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name University of California % Your institution
+\par\end{flushleft}\HorRule} % Horizontal rule after the title
+\date{} % Add a date here if you would like one to appear underneath the title block
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle % Print the title
+\thispagestyle{fancy} % Enabling the custom headers/footers for the first page 
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+% The first character should be within \initial{}
+%\initial{H}\textbf{ere is some sample text to show the initial in the introductory paragraph of this template article. 
+%The color and lineheight of the initial can be modified in the preamble of this document.}
+\initial{L}\textbf{e langage C présente plusieurs types de structures itératives, c'est-à-dire, des structures de contrôle permettant de réaliser des traîtements
+  cycliques en boucle. Il s'agit alors d'exécuter plusieurs fois une portion de code, généralement jusqu'à ce qu'une condition soit fausse. Il convient donc d'être
+  rigoureux dans l'écriture de la condition afin de s'assurer qu'elle ne restera pas toujours vraie et que l'exécution du programme n'entrera pas dans une boucle
+  infinie. Tout comme les structures conditionnelles, les structures itératives utilisent les opérateurs relationnels et logiques afin d'exprimer la condition à évaluer.}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+\section*{Boucle \texttt{while}}
+La boucle \texttt{while} existe dans la plupart des langages de programmation. Elle consiste à tester une condition et à exécuter de manière itérative un bloc
+d'instructions tant que cette condition reste vraie. Sa syntaxe générale est la suivante :
+\begin{lstlisting}[frame=single]
+while (/* Condition à évaluer */)
+{
+  /* Suite d'intructions à traiter */
+  /* en boucle tant que la         */
+  /* la condition est vraie.       */
+}
+\end{lstlisting}
+
+Le bloc d'instructions à exécuter est borné par des accolades. Néanmoins, s'il s'agit de n'exécuter qu'une seule instruction, les accolades sont facultatives.
+
+La figure \ref{while} montre la boucle \texttt{while} sous la forme d'un algorigramme. L'évaluation de la condition est effectuée préalablement à l'exécution du bloc
+d'instructions.
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[node distance=8ex,auto]
+  \node[cloud](start){};
+  \node[decision,below of=start](condition){Condition vraie ?};
+  \node[block2,below of=condition](execution){Bloc d'instruc-\\tions};
+  \node[cloud,below of=execution,right of=execution,xshift=7ex](stop){}; 
+  \path[line](start)--(condition);
+  \path[line](condition)--node{Oui}(execution);
+  \path[line,rounded corners](execution.south)--([yshift=-3ex]execution.south)--++(-15ex,0)|-([yshift=3ex]condition.north)--(condition.north);
+  \path[_line,rounded corners](condition.east)-|node{Non}(stop);
+\end{tikzpicture}
+\caption{Déroulement d'une structure \texttt{while}}\label{while}
+\end{figure}
+
+Le code ci-dessous montre un exemple d'utilisation d'une boucle \texttt{while} :
+\begin{lstlisting}[frame=single]
+int compteur = 0;
+  
+while (compteur < 10)
+{
+  printf("Compteur : %d\n", compteur);
+  compteur++;
+}
+\end{lstlisting}
+
+Il est important de noter que si l'incrémentation de la variable \texttt{compteur} n'est pas effectuée, la condition de la boucle \texttt{while} qui en dépend ne pourra
+jamais être fausse et le programme entrera dans une boucle infinie. 
+
+%------------------------------------------------
+\section*{Boucle \texttt{do...while}}
+La boucle \texttt{do..while} se distingue de la boucle \texttt{while} par le fait que la condition est évaluée au terme du traitement du bloc d'instructions. Ainsi, et
+même si la condition est initialement fausse, le bloc d'instructions est au minimum exécuté une fois. La syntaxe générale de la boucle \texttt{do...while} est la suivante :
+\begin{lstlisting}[frame=single]
+do
+{
+  /* Suite d'intructions à traiter */
+  /* en boucle tant que la         */
+  /* la condition est vraie.       */
+} while (/* Condition à évaluer */);
+\end{lstlisting}
+
+La figure \ref{dowhile} montre la boucle \texttt{do...while} sous la forme d'un algorigramme. L'évaluation de la condition est effectuée après l'exécution du bloc
+d'instructions.
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[node distance=8ex,auto]
+  \node[cloud](start){};
+  \node[block2,below of=start](execution){Bloc d'instruc-\\tions};
+  \node[decision,below of=execution](condition){Condition vraie ?};
+  \node[cloud,below of=condition,right of=condition,xshift=7ex](stop){}; 
+  \path[line](start)--(execution);
+  \path[line](execution)--(condition);
+  \path[line,rounded corners](condition.south)--([yshift=-3ex]condition.south)--++(-15ex,0)|-node{Oui}([yshift=3ex]execution.north)--(execution.north);
+  \path[_line,rounded corners](condition.east)-|node{Non}(stop);
+\end{tikzpicture}
+\caption{Déroulement d'une structure \texttt{do...while}}\label{dowhile}
+\end{figure}
+
+Il existe également un risque de boucle infinie si la condition reste systématiquement vraie. 
+
+Le code ci-dessous montre un exemple d'utilisation d'une boucle \texttt{while} :
+\begin{lstlisting}[frame=single]
+int compteur = 0;
+  
+do
+{
+  printf("Compteur : %d\n", compteur);
+  compteur++;
+} while (compteur < 10);
+\end{lstlisting}
+
+%------------------------------------------------
+\section*{Boucle \texttt{for}}
+La boucle \texttt{for} est une structure très couramment utilisée dans les programmes écrits en langage C. Elle est généralement mise en \oe uvre lorsqu'il est nécessaire
+de répéter un bloc d'instruction durant un nombre de fois préalablement déterminé. Sa syntaxe générale prend en compte trois champs distincts séparés par le caractère
+\texttt{';'}. Elle est la suivante :\begin{lstlisting}[frame=single]
+for (/* Initialisation*/;
+     /* Condition */;
+     /* Itération de contrôle */)
+{
+  /* Suite d'intructions à traiter */
+  /* en boucle tant que la         */
+  /* la condition est vraie.       */
+}
+\end{lstlisting}
+
+L'initialisation consiste à fixer la valeur initiale d'une variable utilisée dans le contrôle de la boucle \texttt{for}. Le second champ concerne l'expression de la condition
+à prendre en compte. Le troisième champ s'applique à la mise à jour de la variable de contrôle de boucle. Cette mise à jour se décline le plus souvent sous la forme d'une
+incrémentation ou d'une décrémentation.
+
+Le code ci-dessous présente un exemple classique d'implémentation d'une boucle \texttt{for} :
+\begin{lstlisting}[frame=single]
+int i;
+  
+for (i = 0; i <= 10; i++)
+  printf("Valeur : %d\n", i);  
+\end{lstlisting}
+
+D'un point de vue algorithmique, la boucle \texttt{for} se comporte de façon similaire à la boucle \texttt{while}.
+
+%------------------------------------------------
+\section*{Imbrication de boucles}
+Dans le cadre de traîtements particuliers, il est parfois nécessaire d'imbriquer plusieurs boucles \texttt{for}. Le code suivant montre un cas d'application :
+\begin{lstlisting}[frame=single]
+int i, j;
+  
+for (i = 0; i < 10; i++)
+  for (j = 0; j < 10; j++)
+    printf("Addition : %d\n", i + j);  
+\end{lstlisting}
+%----------------------------------------------------------------------------------------
+\end{document}
