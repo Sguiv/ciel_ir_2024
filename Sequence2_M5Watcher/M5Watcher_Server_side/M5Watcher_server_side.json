@@ -1,0 +1,449 @@
+[
+    {
+        "id": "fa51b8422be15af0",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef9721b18de240fb",
+        "type": "DeviceStats",
+        "z": "fa51b8422be15af0",
+        "name": "",
+        "mem": true,
+        "nw": false,
+        "load": true,
+        "hostname": false,
+        "useString": false,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "d985baedf36573d5"
+            ]
+        ]
+    },
+    {
+        "id": "ba80511c4ad3209b",
+        "type": "inject",
+        "z": "fa51b8422be15af0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "ef9721b18de240fb",
+                "4645b41679240d7d",
+                "c2e6f8a8dfc59f7e",
+                "9d7cb893c0b72580",
+                "1bf4d5fe3bf529a1"
+            ]
+        ]
+    },
+    {
+        "id": "a9e6b1126f6dab45",
+        "type": "serial out",
+        "z": "fa51b8422be15af0",
+        "name": "",
+        "serial": "985bec3167cb7aec",
+        "x": 1150,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c494c63bb1ec5787",
+        "type": "debug",
+        "z": "fa51b8422be15af0",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "4645b41679240d7d",
+        "type": "Drives",
+        "z": "fa51b8422be15af0",
+        "name": "",
+        "x": 130,
+        "y": 280,
+        "wires": [
+            [
+                "61f0e896621acb73"
+            ]
+        ]
+    },
+    {
+        "id": "c2e6f8a8dfc59f7e",
+        "type": "network_stats",
+        "z": "fa51b8422be15af0",
+        "name": "",
+        "receivedBytesSec": true,
+        "transmittedBytesSec": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "15ecf392629111f1"
+            ]
+        ]
+    },
+    {
+        "id": "61f0e896621acb73",
+        "type": "function",
+        "z": "fa51b8422be15af0",
+        "name": "function 2",
+        "func": "msg.payload=msg.payload[2].capacity;\nmsg.payload.topic=\"hdd_occupation\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 280,
+        "wires": [
+            [
+                "ac8881aeef34b39e"
+            ]
+        ]
+    },
+    {
+        "id": "9d7cb893c0b72580",
+        "type": "NetworkIntf",
+        "z": "fa51b8422be15af0",
+        "name": "",
+        "x": 310,
+        "y": 360,
+        "wires": [
+            [
+                "cc57b3e03af3e7ff",
+                "b8f399360a0949d5"
+            ]
+        ]
+    },
+    {
+        "id": "c56fb16313f57a32",
+        "type": "join",
+        "z": "fa51b8422be15af0",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "6",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 950,
+        "y": 200,
+        "wires": [
+            [
+                "a9e6b1126f6dab45",
+                "c494c63bb1ec5787"
+            ]
+        ]
+    },
+    {
+        "id": "d985baedf36573d5",
+        "type": "change",
+        "z": "fa51b8422be15af0",
+        "name": "deviceStats",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "deviceStats",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "c56fb16313f57a32"
+            ]
+        ]
+    },
+    {
+        "id": "ac8881aeef34b39e",
+        "type": "change",
+        "z": "fa51b8422be15af0",
+        "name": "sda_usage",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "sda_usage",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 280,
+        "wires": [
+            [
+                "c56fb16313f57a32"
+            ]
+        ]
+    },
+    {
+        "id": "b2038b80fd253ea2",
+        "type": "change",
+        "z": "fa51b8422be15af0",
+        "name": "nw_rx",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "nw_rx",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 80,
+        "wires": [
+            [
+                "c56fb16313f57a32"
+            ]
+        ]
+    },
+    {
+        "id": "1bf4d5fe3bf529a1",
+        "type": "network_stats",
+        "z": "fa51b8422be15af0",
+        "name": "",
+        "receivedBytesSec": false,
+        "transmittedBytesSec": true,
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "f332bc97a550ea27"
+            ]
+        ]
+    },
+    {
+        "id": "a1ec2c2c9b86115a",
+        "type": "change",
+        "z": "fa51b8422be15af0",
+        "name": "nw_tx",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "nw_tx",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 140,
+        "wires": [
+            [
+                "c56fb16313f57a32"
+            ]
+        ]
+    },
+    {
+        "id": "15ecf392629111f1",
+        "type": "function",
+        "z": "fa51b8422be15af0",
+        "name": "function 3",
+        "func": "msg.payload=Math.round(msg.payload/1024);\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "b2038b80fd253ea2"
+            ]
+        ]
+    },
+    {
+        "id": "f332bc97a550ea27",
+        "type": "function",
+        "z": "fa51b8422be15af0",
+        "name": "function 4",
+        "func": "msg.payload=Math.round(msg.payload/1024);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "a1ec2c2c9b86115a"
+            ]
+        ]
+    },
+    {
+        "id": "cc57b3e03af3e7ff",
+        "type": "function",
+        "z": "fa51b8422be15af0",
+        "name": "function 5",
+        "func": "msg.payload=msg.payload.networkInterfaces.enp0s3[0].cidr;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 360,
+        "wires": [
+            [
+                "6aee153c69870037"
+            ]
+        ]
+    },
+    {
+        "id": "6aee153c69870037",
+        "type": "change",
+        "z": "fa51b8422be15af0",
+        "name": "nw_cidr",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "nw_cidr",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 360,
+        "wires": [
+            [
+                "c56fb16313f57a32"
+            ]
+        ]
+    },
+    {
+        "id": "b8f399360a0949d5",
+        "type": "function",
+        "z": "fa51b8422be15af0",
+        "name": "function 6",
+        "func": "msg.payload=msg.payload.networkInterfaces.enp0s3[0].mac;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "2563234def92c898"
+            ]
+        ]
+    },
+    {
+        "id": "2563234def92c898",
+        "type": "change",
+        "z": "fa51b8422be15af0",
+        "name": "nw_mac",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "nw_mac",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 420,
+        "wires": [
+            [
+                "c56fb16313f57a32"
+            ]
+        ]
+    },
+    {
+        "id": "985bec3167cb7aec",
+        "type": "serial-port",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    }
+]
