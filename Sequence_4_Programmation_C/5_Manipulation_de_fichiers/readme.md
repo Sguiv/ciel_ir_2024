@@ -254,13 +254,13 @@ Il convient d'être prudent dans l'utilisation de la fonction `remove()`. Elle s
 **Pour les exercices vous devrez reproduire le fonctionnement de programmes exemples fournis dans le dossier `exemple` de ce github. Pour les executer sur votre machine, vous devez donc les técharger et les éxécuter (en les ayant au préalable rendus executables). Attention, l'exercice 2 a besoin du fichier baseDeDonnee.csv dans le même dossier pour pouvoir fonctionner**
 
 ## Exercice 1
-1.Télécharger et executer le fichier `exemples\s45ex1_fichiers`
-2.Observer le contenu du fichier `test.txt`à la fin de l'execution du programme
-3.Reproduire le fonctionnement du programme en utilisant les fonctions de la librairie stdio.h
+1. Télécharger et executer le fichier `exemples\s45ex1_fichiers`
+2. Observer le contenu du fichier `test.txt`à la fin de l'execution du programme
+3. Reproduire le fonctionnement du programme en utilisant les fonctions de la librairie stdio.h
 ## Exercice 2
-1.Télécharger et executer le fichier `exemples\s45ex2_fichiers`
-2.Observer le fonctionnement du fichier `BaseDeDonnees.csv`à la fin de l'execution du programme
-3.Reproduire le fonctionnement du programme en utilisant les fonctions de la librairie stdio.h
+1. Télécharger et executer le fichier `exemples\s45ex2_fichiers`
+2. Observer le fonctionnement du fichier `BaseDeDonnees.csv`à la fin de l'execution du programme
+3. Reproduire le fonctionnement du programme en utilisant les fonctions de la librairie stdio.h
   Pour cela procéder par étape en faisant plusieurs version de votre programme (programmation incrémentale) : 
   - V1.1 : Le programme permet l'ajout d'une personne dans le fichier BaseDeDonnees.csv
   - V1.2 : En plus des fonctionnalités de la V1.1, le programme affiche un menu de choix 1.Saisir 2.Afficher 3.Quitter
