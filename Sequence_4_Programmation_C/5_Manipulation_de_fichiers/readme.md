@@ -254,7 +254,8 @@ Il convient d'être prudent dans l'utilisation de la fonction `remove()`. Elle s
 **Pour les exercices vous devrez reproduire le fonctionnement de programmes exemples fournis dans le dossier `exemple` de ce github. Pour les executer sur votre machine, vous devez donc les técharger et les éxécuter (en les ayant au préalable rendus executables). Attention, l'exercice 2 a besoin du fichier baseDeDonnee.csv dans le même dossier pour pouvoir fonctionner**
 
 ## Exercice 1
-Reproduire le fonctionnement du programme `exemples\s45ex1_fichiers`
-
+1.Télécharger et executer le fichier `exemples\s45ex1_fichiers`
+2.Observer le contenu du fichier `test.txt`à la fin de l'execution du programme
+3.Reproduire le fonctionnement du programme en utilisant les fonctions de la librairie stdio.h
 ## Exercice 2
 Reproduire le fonctionnement du programme `exemples\s45ex2_fichiers`
