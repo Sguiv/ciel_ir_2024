@@ -250,3 +250,11 @@ La fonction `remove()` renvoie la valeur `0` si la suppression du fichier s'est 
 
 Il convient d'être prudent dans l'utilisation de la fonction `remove()`. Elle supprime le fichier dont le nom est passé en paramètre sans émettre de message d'avertissement ou de confirmation.
 
+# Exercices 
+**Pour les exercices vous devrez reproduire le fonctionnement de programmes exemples fournis dans le dossier `exemple` de ce github. Pour les executer sur votre machine, vous devez donc les técharger et les éxécuter (en les ayant au préalable rendus executables). Attention, l'exercice 2 a besoin du fichier baseDeDonnee.csv dans le même dossier pour pouvoir fonctionner**
+
+## Exercice 1
+Reproduire le fonctionnement du programme `exemples\s45ex1_fichiers`
+
+## Exercice 2
+Reproduire le fonctionnement du programme `exemples\s45ex2_fichiers`
