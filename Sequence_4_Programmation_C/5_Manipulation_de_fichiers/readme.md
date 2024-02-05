@@ -258,7 +258,7 @@ Il convient d'être prudent dans l'utilisation de la fonction `remove()`. Elle s
 2.Observer le contenu du fichier `test.txt`à la fin de l'execution du programme
 3.Reproduire le fonctionnement du programme en utilisant les fonctions de la librairie stdio.h
 ## Exercice 2
-1.Télécharger et executer le fichier `exemples\s45ex1_fichiers`
+1.Télécharger et executer le fichier `exemples\s45ex2_fichiers`
 2.Observer le fonctionnement du fichier `BaseDeDonnees.csv`à la fin de l'execution du programme
 3.Reproduire le fonctionnement du programme en utilisant les fonctions de la librairie stdio.h
   Pour cela procéder par étape en faisant plusieurs version de votre programme (programmation incrémentale) : 
