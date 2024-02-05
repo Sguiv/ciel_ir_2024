@@ -11,3 +11,4 @@ L'ouverture d'un fichier s'effectue au moyen de la fonction `fopen()`.Son protot
 Cette fonction renvoie un pointeur sur un type spécifique complexe nommé `FILE`. Il s'agit en fait d'une structure de données définie dans le fichier d'entête.
 Le paramètre `fichier` est une chaîne de caractères correspondant au nom du fichier à ouvrir et éventuellement au chemin d'accès complet jusqu'au fichier à ouvrir s'il ne se situe pas dans le répertoire courant.Le paramètre `mode` permet de préciser le mode d'ouverture spécifiant le type d'accès au contenu du fichier. Les principales valeurs sont listées dans le tableau suivant. Elles s'appliquent à un accès en mode texte. C'est-à-dire que le contenu des fichiers est traîté sous forme de caractères et non pas comme une succession d'éléments binaires (0 ou 1). 
 
+|
