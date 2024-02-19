@@ -1,0 +1,7 @@
+Génération pour cible BeagleBone Black :
+
+  make clean && make BBB=yes
+
+Génération pour cible PC (amd64) :
+
+  make clean && make
