@@ -55,7 +55,7 @@ Argument 3 : def
 Argument 4 : ghi
 Argument 5 : jkl
 ```
-## Exploitation d'arguments sous forme numérique}
+## Exploitation d'arguments sous forme numérique
 Bien que les arguments transmis à la fonction ```main()``` sont systématiquement de type chaîne de caractères, il est possible de les exploiter comme des valeurs numériques. Pour cela, il faut convertir les chaînes passées en arguments sous forme de nombre entiers en utilisant les fonctions ```atoi()``` et ```atol()``` définies dans le fichier d'entête ```stdlib.h``` qu'il est alors impératif d'inclure dans le code source du programme. 
 
 Le prototype des deux fonctions est le suivant :
