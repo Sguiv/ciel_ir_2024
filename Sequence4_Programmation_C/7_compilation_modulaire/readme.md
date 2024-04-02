@@ -104,3 +104,33 @@ gcc main.o greffon.o -o monprog
 Cette façon de procéder concerne essentiellement le cadre de réutilisation dans différents programmes de composants logiciels, appelés briques logicielles. Il s'agit alors de mutualiser une partie du développement ou de conserver la confidentialité de l'implémentation des fonctions et des traitements assurés par le greffon.
 
 Bien évidemment, si le code source du greffon n'est pas disponible, une documentation doit renseigner quant à la déclaration des fonctions, traitements, variables, structures de données et constantes accessibles et implémentées dans le code source du greffon.
+
+## Projet : Gestionnaire de listes de tâches
+
+### Objectif
+Créer un programme de gestion de listes de tâches qui permet d'ajouter, supprimer, afficher et rechercher des tâches.
+
+### Structure du projet
+- `main.c` : contient la fonction `main()` qui interagit avec les fonctions de la bibliothèque.
+- `liste_taches.h` : en-tête de la bibliothèque contenant les prototypes des fonctions de gestion des listes de tâches.
+- `liste_taches.c` : implémentation des fonctions de gestion des listes de tâches.
+
+### Fonctions de gestion des listes de tâches
+- `ajouterTache(const char* tache)` : ajoute une nouvelle tâche à la liste.
+- `supprimerTache(const char* tache)` : supprime une tâche de la liste.
+- `afficherTaches()` : affiche toutes les tâches de la liste.
+- `rechercherTache(const char* tache)` : recherche une tâche dans la liste.
+
+### Étapes de réalisation
+1. Déclarez les prototypes des fonctions de gestion des listes de tâches dans `liste_taches.h`.
+2. Implémentez les fonctions dans `liste_taches.c`.
+3. Dans `main.c`, incluez `liste_taches.h` et utilisez les fonctions de la bibliothèque pour interagir avec la liste de tâches.
+
+### Compilation
+- Compilez `liste_taches.c` séparément pour créer la bibliothèque.
+- Compilez `main.c` en incluant la bibliothèque créée à l'étape précédente.
+- Liez les deux fichiers objet pour créer l'exécutable final.
+
+### Utilisation
+- L'utilisateur peut exécuter le programme et choisir parmi différentes options pour ajouter, supprimer, afficher ou rechercher des tâches.
+- Le programme utilise les fonctions de la bibliothèque pour effectuer les opérations demandées sur la liste de tâches.
